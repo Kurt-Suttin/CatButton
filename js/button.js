@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Step 2: Define the fetchCats function
     function fetchCats() {
-        let url = "bd.json";
+        let url = "https://api.thecatapi.com/v1/images/search";
         let options = {
             method: "GET",
             headers: {

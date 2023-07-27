@@ -31,6 +31,8 @@ document.addEventListener("DOMContentLoaded", () => {
                     catImage.src = imgURL;
                     // You may need to add a delay here if you want to show each image one by one
                 }
+                let sound = new Audio('cat-sound.mp3');
+                sound.play();
             })
             .catch(error => {
                 // Handle errors here

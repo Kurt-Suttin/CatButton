@@ -1,10 +1,10 @@
 document.addEventListener("DOMContentLoaded", () => {
     // Step 1: Add the event listener to the button
     let element = document.querySelector("#cat-btn");
-    element.addEventListener("click", fetchCats);
+    element.addEventListener("click", getCats);
 
     // Step 2: Define the fetchCats function
-    function fetchCats() {
+    function getCats() {
         let url = "https://api.thecatapi.com/v1/images/search";
         let options = {
             method: "GET",
@@ -23,7 +23,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 // Handle the data here (e.g., update the DOM with the cat image)
                 let catImage = document.querySelector(".display-cat img");
-
+                let sound = new Audio('cat-sound.mp3');
+                sound.play();
                 // Assuming bd.json contains an array of cat image URLs
                 // Loop through the data array and display the cat images one by one
                 for (let i = 0; i < data.length; i++) {
@@ -31,12 +32,11 @@ document.addEventListener("DOMContentLoaded", () => {
                     catImage.src = imgURL;
                     // You may need to add a delay here if you want to show each image one by one
                 }
-                let sound = new Audio('cat-sound.mp3');
-                sound.play();
             })
             .catch(error => {
                 // Handle errors here
                 console.error("Error fetching cat data:", error);
             });
     }
+    getCats();
 });
